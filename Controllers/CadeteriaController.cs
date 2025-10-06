@@ -85,7 +85,7 @@ namespace CadeteriaAPI.Controllers
             {
                 return NotFound("Pedido no encontrado");
             }
-            ADPedidos.Guardar(cadeteria.listadoPedidos())
+            ADPedidos.Guardar(cadeteria.listadoPedidos());
             return Ok(resultado);
         }
     }

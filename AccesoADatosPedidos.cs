@@ -19,7 +19,7 @@ public class AccesoADatosPedidos
     public void Guardar(List<Pedido> pedidos)
     {
         string archivoJson = "Pedidos.json";
-        string json = JsonSerializer.Serialize(Pedidos, , new JsonSerializerOptions { WriteIndented = true });
+        string json = JsonSerializer.Serialize(Pedidos, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(archivoJson, json);
     } 
 }
