@@ -31,3 +31,5 @@ C:\tl2-tp4-2025-Gonz0x\obj\Debug\net8.0\refint\tl2-tp4-2025-Gonz0x.dll
 C:\tl2-tp4-2025-Gonz0x\obj\Debug\net8.0\tl2-tp4-2025-Gonz0x.pdb
 C:\tl2-tp4-2025-Gonz0x\obj\Debug\net8.0\tl2-tp4-2025-Gonz0x.genruntimeconfig.cache
 C:\tl2-tp4-2025-Gonz0x\obj\Debug\net8.0\ref\tl2-tp4-2025-Gonz0x.dll
+C:\tl2-tp4-2025-Gonz0x\bin\Debug\net8.0\Cadeteria.Json
+C:\tl2-tp4-2025-Gonz0x\bin\Debug\net8.0\Cadetes.Json

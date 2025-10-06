@@ -19,7 +19,7 @@ namespace CadeteriaAPI.Controllers
             ADPedidos= new AccesoADatosPedidos();
             cadeteria = ADCadeteria.Obtener();
             cadeteria.AgregarListaCadetes(ADCadetes.Obtener());
-            cadeteria.AgregarListaPedidos(ADPedios.Obtener());
+            cadeteria.AgregarListaPedidos(ADPedidos.Obtener());
         }
 
         [HttpGet("pedidos")]
@@ -42,14 +42,11 @@ namespace CadeteriaAPI.Controllers
         }
 
         [HttpPost("pedido")]
-        public ActionResult<Pedido> AgregarPedido(string nombreCliente, string direccionCliente, int telefonoCliente, string datosReferenciaDireccion, string observaciones)
+        public ActionResult<string> AgregarPedido([FromBody] Pedido pedido)
         {
-            if(string.IsNullOrWhiteSpace(nombreCliente)) return BadRequest("Nombre de cliente no puede ser vacio o nulo.");
-            Cliente cliente = new Cliente(nombreCliente, direccionCliente, telefonoCliente, datosReferenciaDireccion);
-            Pedido pedido = new Pedido(observaciones, cliente);
-            cadeteria.AgregarPedido(pedido);
-            ADPedidos.Guardar(cadeteria.listadoPedidos());
-            return Created("", pedido);
+            cadeteria.AltaPedido(pedido);
+            ADPedidos.Guardar(cadeteria.GetPedidos());
+            return Created("Pedido creado con EXITO!", pedido);
         }
 
         [HttpPut("asignar")]
@@ -60,7 +57,7 @@ namespace CadeteriaAPI.Controllers
             {
                 return NotFound();
             }
-            ADPedidos.Guardar(cadeteria.listadoPedidos());
+            ADPedidos.Guardar(cadeteria.GetPedidos());
             return Ok(resultado);
         }
 
@@ -73,7 +70,7 @@ namespace CadeteriaAPI.Controllers
             {
                 return NotFound("Pedido no encontrado");
             }
-            ADPedidos.Guardar(cadeteria.listadoPedidos());
+            ADPedidos.Guardar(cadeteria.GetPedidos());
             return Ok(resultado);
         }
 
@@ -85,7 +82,7 @@ namespace CadeteriaAPI.Controllers
             {
                 return NotFound("Pedido no encontrado");
             }
-            ADPedidos.Guardar(cadeteria.listadoPedidos());
+            ADPedidos.Guardar(cadeteria.GetPedidos());
             return Ok(resultado);
         }
     }

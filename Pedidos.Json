@@ -1,0 +1,10 @@
+[
+  {
+    "Id": 1,
+    "Descripcion": "Entrega de paquete",
+    "NombreCliente": "Juan Pérez",
+    "Direccion": "Calle Falsa 123",
+    "CadeteId": 0,
+    "Estado": "Pendiente"
+  }
+]

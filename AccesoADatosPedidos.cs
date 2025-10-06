@@ -1,4 +1,5 @@
 using System.Text.Json;
+using CadeteriaAPI.Models;
 public class AccesoADatosPedidos
 {
 
@@ -6,8 +7,8 @@ public class AccesoADatosPedidos
     {    
         string archivoJson = "Pedidos.json";
         string json = File.ReadAllText(archivoJson);
-        List<Pedidos>? pedidos = JsonSerializer.Deserialize<List<Pedido>>(json);
-        if(pedidos = null)
+        List<Pedido>? pedidos = JsonSerializer.Deserialize<List<Pedido>>(json);
+        if(pedidos == null)
         {
             throw new Exception("Error al deserializar pedidos");
         }else
@@ -19,7 +20,7 @@ public class AccesoADatosPedidos
     public void Guardar(List<Pedido> pedidos)
     {
         string archivoJson = "Pedidos.json";
-        string json = JsonSerializer.Serialize(Pedidos, new JsonSerializerOptions { WriteIndented = true });
+        string json = JsonSerializer.Serialize(pedidos, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(archivoJson, json);
     } 
 }

@@ -1,5 +1,5 @@
 using System.Text.Json;
-
+using CadeteriaAPI.Models;
 public class AccesoADatosCadetes
 {
 
@@ -7,7 +7,7 @@ public class AccesoADatosCadetes
     {    
         string archivoJson = "Cadetes.json";
         string json = File.ReadAllText(archivoJson);
-        LList<Cadete>? cadetes = JsonSerializer.Deserialize<List<Cadete>>(json);
+        List<Cadete>? cadetes = JsonSerializer.Deserialize<List<Cadete>>(json);
         if(cadetes == null)
         {
             throw new Exception("Error al deserializar cadetes");

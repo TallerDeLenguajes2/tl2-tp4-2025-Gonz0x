@@ -27,6 +27,11 @@ namespace CadeteriaAPI.Models
             listadoPedidos.Add(pedido);
             return $"Pedido #{nro} agregado correctamente.";
         }
+        
+        public void AltaPedido(Pedido pedido)
+        {
+            Pedidos.Add(pedido);
+        }
 
         public string AsignarPedido(int nroPedido, int idCadete)
         {
@@ -82,6 +87,17 @@ namespace CadeteriaAPI.Models
                 return $"No se encontró el pedido #{nroPedido}";
             }
         }
+
+        public void AgregarListaCadetes(List<Cadete> cadetes)
+        {
+            listadoCadetes = cadetes;
+        }
+
+        public void AgregarListaPedidos(List<Pedido> pedidos)
+        {
+            listadoPedidos = pedidos;
+        }
+
 
         public List<Pedido> GetPedidos()
         {
